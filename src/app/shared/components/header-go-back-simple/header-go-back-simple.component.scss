@@ -1,0 +1,11 @@
+@import 'src/app/shared/styles/shared.scss';
+
+header {
+    position: fixed;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    a {
+        @include linkAnimated();
+    }
+}

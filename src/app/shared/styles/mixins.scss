@@ -1,0 +1,180 @@
+@import './variables.scss';
+
+@mixin btnSmall($backgroundColor, $color) {
+    background-color: $backgroundColor;
+    color: $color;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnMedium($backgroundColor, $color) {
+    background-color: $backgroundColor;
+    color: $color;
+    padding: .8rem 1.5rem;
+    border-radius: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnLarge($backgroundColor, $color) {
+    background-color: $backgroundColor;
+    color: $color;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnFull($backgroundColor, $color, $border) {
+    background-color: $backgroundColor;
+    color: $color;
+    border-radius: 5px;
+    padding: 8px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    border: $border;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnOutlineSmall($backgroundColor, $color) {
+    background-color: transparent;
+    color: $color;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid $color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnOutlineMedium($backgroundColor, $color) {
+    background-color: transparent;
+    color: $color;
+    padding: .8rem 1.5rem;
+    border-radius: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid $color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin btnOutlineLarge($backgroundColor, $color) {
+    background-color: transparent;
+    color: $color;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid $color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin linkAnimated() {
+    color: $lightText;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-3px);
+    }
+    &:active {
+        transform: translateY(2px);
+    }
+    &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: linear-gradient(120deg, $secondaryColor, $primaryColor);
+        transition: width 0.3s ease-in-out;
+    }
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+// Form groups styles
+@mixin form-group() {
+    width: 100%;
+    margin: 10px 0;
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+        font-weight: normal;
+        color: $lightText;
+    }
+    input {
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 5px;
+        border: 1px solid $gray;
+        font-size: 1rem;
+        &:focus {
+            outline: none;
+        }
+    }
+}
