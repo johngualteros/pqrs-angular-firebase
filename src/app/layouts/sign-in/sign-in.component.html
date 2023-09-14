@@ -1,5 +1,5 @@
 <app-header-go-back-simple></app-header-go-back-simple>
-<div class="container">
+<div class="container" [@fadeAnimation]>
     <div class="container-form">
         <h1>Sign In</h1>
         <form>
@@ -32,5 +32,9 @@
                 Sign in With Apple
             </button>
         </form>
+        <p>
+            Don't have an account?
+            <a routerLink="/sign-up">Sign Up</a>
+        </p>
     </div>
 </div>

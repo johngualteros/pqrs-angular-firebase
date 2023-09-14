@@ -1,1 +1,28 @@
-<p>sign-up works!</p>
+<app-header-go-back-simple></app-header-go-back-simple>
+<div class="container" [@fadeAnimation]>
+    <div class="container-form">
+        <h1>Sign Up</h1>
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       placeholder="Password">
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+        <p>
+            Already have an account?
+            <a routerLink="/sign-in">Sign In</a>
+        </p>
+    </div>
+</div>

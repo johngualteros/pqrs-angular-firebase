@@ -1,0 +1,46 @@
+@import 'src/app/shared/styles/shared.scss';
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-form {
+        width: 20%;
+        h1 {
+            text-align: center;
+        }
+        form {
+            .btn-primary {
+                @include btnFull($primaryColor, $white, none);
+            }
+            .form-group {
+                @include form-group();
+            }
+        }
+        p {
+            text-align: center;
+            margin: 10px 0;
+            a {
+                color: $secondaryColor;
+            }
+        }
+    } 
+}
+
+@media (max-width: 1250px) {
+    .container {
+        .container-form {
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        .container-form {
+            width: 80%;
+        }
+    }
+}
