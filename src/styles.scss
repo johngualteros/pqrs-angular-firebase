@@ -10,3 +10,16 @@
     color: #fff;
     background-color: $darkBackground;
 }
+
+// changing the styles of scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $darkSecondaryColor;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primaryColor;
+}

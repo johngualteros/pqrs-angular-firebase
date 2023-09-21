@@ -1,0 +1,322 @@
+@import 'src/app/shared/styles/shared.scss';
+
+
+.container {
+    background-color: rgba($color: #000000, $alpha: .7);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+}
+
+p {
+    font-family: Lato;
+  }
+  
+  .video-container {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+  
+    video {
+      width: 100%;
+      height: 100%;
+    }
+  
+    button {
+      background: none;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      margin: 0;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+  
+      svg {
+        fill: white;
+        stroke: white;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        width: 100%;
+        height: 100%;
+      }
+      &.rewind svg,
+      &.fast-forward svg {
+        stroke: none;
+      }
+      &.ripple {
+        position: relative;
+  
+        &:after {
+          content: "";
+          background: rgba(255, 255, 255, 0.3);
+          display: block;
+          position: absolute;
+          border-radius: 50%;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 160px;
+          height: 160px;
+          margin: auto;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        &:active:after {
+          height: 10px;
+          width: 10px;
+          opacity: 1;
+          transition: 0s;
+        }
+      }
+    }
+  
+    .video-controls-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1;
+  
+      button {
+        width: 160px;
+        height: 160px;
+        min-width: 160px;
+        min-height: 160px;
+        padding: 50px;
+        background: rgba(0, 0, 0, 0.05);
+        opacity: 1;
+        overflow: hidden;
+        border-radius: 50%;
+  
+        &:hover {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+    }
+  
+    .controls-container {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      min-height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+      transition: opacity 0.5s linear;
+      z-index: 2;
+    }
+  
+    .progress-controls {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 8px;
+  
+      .time-remaining {
+        margin: 4px;
+        width: 1;
+      }
+  
+      .progress-bar {
+        width: 100%;
+        height: 3px;
+        max-height: 7px;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin: 0 8px;
+        position: relative;
+        // border-radius: 3px;
+        // overflow: hidden;
+        &.watched-bar,
+        &.playhead {
+          display: inline-block;
+          transition: all 0.2s;
+        }
+  
+        .watched-bar {
+          height: 110%;
+          width: 20%;
+          background: #8b53f1;
+          z-index: 1;
+        }
+  
+        .loaded-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: white;
+          height: 100%;
+          width: 20%;
+          transition: all 0.2s;
+        }
+  
+        .playhead {
+          height: 16px;
+          width: 16px;
+          max-height: 16px;
+          max-width: 16px;
+          border-radius: 50%;
+          // transform: translateX(-50%);
+          background: #fff;
+          z-index: 2;
+          transition: all 0.2s;
+        }
+  
+        &:hover {
+          height: 8px;
+  
+          .playhead {
+            height: 20px;
+            width: 20px;
+            max-height: 20px;
+            max-width: 20px;
+          }
+        }
+      }
+    }
+  
+    .controls {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 8px;
+  
+      button {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        opacity: 0.4;
+        transform: scale(0.9);
+  
+        &:hover {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+  
+        &.volume svg path,
+        &.full-screen svg,
+        &.volume svg path {
+          fill: none;
+        }
+      }
+  
+      .title {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 8px;
+        margin: 0;
+        font-size: 1rem;
+        .series {
+          color: #fefefe;
+          font-weight: bold;
+          font-size: 1em;
+          line-height: 1;
+        }
+        .episode {
+          color: #a1a1a1;
+          font-size: 0.75em;
+          padding-left: 8px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .video-container .controls .title {
+      display: none;
+    }
+  }
+  
+  .margin-left-auto {
+    margin-left: auto !important;
+  }
+  
+  .loader,
+  .loader:before,
+  .loader:after {
+    background: #ffffff;
+    -webkit-animation: load1 1s infinite ease-in-out;
+    animation: load1 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+    z-index: 100;
+  }
+  .loader {
+    color: #ffffff;
+    text-indent: -9999em;
+    margin: 88px auto;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+    position: absolute;
+  }
+  .loader:before,
+  .loader:after {
+    position: absolute;
+    top: 0;
+    content: "";
+  }
+  .loader:before {
+    left: -1.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .loader:after {
+    left: 1.5em;
+  }
+  @-webkit-keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+  @keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+  
