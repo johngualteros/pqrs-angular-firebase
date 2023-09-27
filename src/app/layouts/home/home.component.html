@@ -8,7 +8,7 @@
         <div class="container-buttons">
             <button class="btn-primary" routerLink="/sign-in">Get Started</button>
             <button class="btn-outline-secondary">Demo</button>
-            <button class="btn-outline-gray">
+            <button class="btn-outline-gray" (click)="openVideo()">
                 <img src="../assets/play.svg" alt="">
                 Watch Video introduction
             </button>
@@ -42,4 +42,6 @@
     <p>Copyright © 2023</p>
 </footer>
 
-<app-video-player></app-video-player>
+<!-- TODO: know how use the output decorator -->
+
+<app-video-player *ngIf="isWatchingVideo"></app-video-player>

@@ -4,9 +4,12 @@ import {
   Component,
   ElementRef,
   Inject,
+  Output,
   VERSION,
   ViewChild,
 } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { VideoPlayerService } from 'src/app/core/services/video-player/video-player.service';
 
 interface Document extends HTMLDocument {
   mozCancelFullScreen: () => void;
@@ -38,7 +41,14 @@ export class VideoPlayerComponent implements AfterViewInit {
   @ViewChild('progressBar') progressBar: ElementRef;
   public videoElement: HTMLVideoElement;
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document,
+    private videoPlayerService: VideoPlayerService
+  ) { }
+
+  closeVideoPlayer() {
+    this.videoPlayerService.setIsViewingVideo = false;
+  }
+
   ngAfterViewInit(): void {
     this.videoElement = this.video.nativeElement;
     this.videoContainer.nativeElement.addEventListener('mousemove', () => {
@@ -120,7 +130,6 @@ export class VideoPlayerComponent implements AfterViewInit {
       this.isPlaying = false;
     });
 
-    console.log(this.videoElement);
   }
 
   displayControls() {
